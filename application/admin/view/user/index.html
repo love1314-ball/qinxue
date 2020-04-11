@@ -1,0 +1,33 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-card">
+	<div class="layui-card-body">
+        <div class="layui-btn-group">
+		    <a href="{:url('admin/user/add')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加会员</a>
+        </div>
+		<table class="layui-table layui-form">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>用户名</th>
+					<th>邮箱</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach name="all" item="v" empty="$empty"}
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.username}</td>
+					<td>{$v.mailbox}</td>
+					<td>
+						<a href="{:url('admin/user/add', ['up' => $v.id])}" class="layui-btn layui-btn-xs layui-btn-normal"><i class="fa fa-edit"></i> 编辑</a>
+						<a href="{:url('admin/user/del', ['id' => $v.id])}" class="layui-btn layui-btn-xs layui-btn-danger ajax-delete"><i class="fa fa-trash-o"></i> 删除</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</div>
+</div>
+{/block}

@@ -1,0 +1,168 @@
+<!-- 戏曲/增加/编辑页面 -->
+{extend name="base" /}
+{block name="body"}
+<style>
+    .file {
+        position: relative;
+        display: inline-block;
+        background: #D0EEFF;
+        border: 1px solid #99D3F5;
+        border-radius: 4px;
+        padding: 4px 12px;
+        overflow: hidden;
+        color: #1E88C7;
+        text-decoration: none;
+        text-indent: 0;
+        line-height: 20px;
+    }
+
+    .file input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+
+    .left {
+        margin-left: 5%;
+    }
+
+    .time {
+        width: 770px;
+        height: auto;
+        background-color: antiquewhite;
+    }
+</style>
+
+
+<div class="layui-card">
+    <div class="layui-card-header">戏曲设置</div>
+    <div class="layui-card-body">
+        <form action="{:url('admin/Play/edit')}" class="layui-form" method="post" enctype="multipart/form-data">
+            {empty name="id"}
+            <!-- 增加页面 -->
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲类：</label>
+                <div class="layui-input-inline">
+                    <select name="song_id" lay-verify="">
+                        <option value="">请选择一个曲类</option>
+                        {foreach name="date" item="v" empty="$empty"}
+                        <option value="{$v.id}">{$v.song_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="layui-form-mid layui-word-aux">将要戏曲增加到那个类库里面</div>
+            </div>
+
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="play_name" value="" placeholder="戏曲名字" required="required"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加戏曲的名字</div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">戏曲图片：</label>
+                <div class="layui-input-block">
+                    <input class="file" type="file" name="picture">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">戏曲视频：</label>
+                <div class="layui-input-block">
+                    <input class="file" type="file" name="video">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲介绍:</label>
+                <div class="layui-input-inline">
+                    <textarea rows="10" cols="50" name="particular" required lay-verify="required"
+                        placeholder="戏曲的介绍文字"></textarea>
+                </div>
+            </div>
+
+
+
+            {else /}
+            <!-- 编辑页面 -->
+
+            <input type="hidden" name="id" value="{$id}" id="">
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲类：</label>
+                <div class="layui-input-inline">
+                    <select name="song_id" lay-verify="">
+                        <option value="{$song.id}">{$song.song_name}</option>
+                        {foreach name="date" item="v" empty="$empty"}
+                        <option value="{$v.id}">{$v.song_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="layui-form-mid layui-word-aux">将要戏曲增加到那个类库里面</div>
+            </div>
+
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="play_name" value="{$all.play_name}" placeholder="戏曲名字" required="required"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加戏曲的名字</div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">戏曲图片：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="worn_picture" readonly value="{$all.picture}" class="layui-input">
+                    <p>不选为之前默认</p>
+                    <input class="file" type="file" name="picture">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">戏曲视频：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="worn_video" readonly value="{$all.video}" class="layui-input">
+                    <p>不选为之前默认</p>
+                    <input class="file" type="file" name="video">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">戏曲介绍:</label>
+                <div class="layui-input-inline">
+                    <textarea rows="10" cols="50" name="particular" required lay-verify="required"
+                        placeholder="戏曲的介绍文字">{$all.particular}</textarea>
+                </div>
+            </div>
+            {/empty}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit" lay-submit="">保存</button>
+                    <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

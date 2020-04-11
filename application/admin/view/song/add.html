@@ -1,0 +1,109 @@
+<!-- 曲种/增加/编辑页面 -->
+{extend name="base" /}
+{block name="body"}
+<div class="layui-card">
+    <div class="layui-card-header">增加曲种</div>
+    <div class="layui-card-body">
+        <form action="{:url('admin/Song/edit')}" class="layui-form" method="post">
+            {empty name="id"}
+            <!-- 增加页面 -->
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">曲类名字：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="song_name" value="" placeholder="用户名字" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加曲类的名字</div>
+            </div>
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">曲类介绍:</label>
+                <div class="layui-input-inline">
+                    <textarea name="introduce" required lay-verify="required" placeholder="请输入"
+                        class="layui-textarea"></textarea>
+                </div>
+                <div class="layui-form-mid layui-word-aux">曲类的介绍</div>
+            </div>
+
+
+            {else /}
+            <!-- 编辑页面 -->
+
+            <input type="hidden" name="id" value="{$id}" id="">
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">曲类名字：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="song_name" value="{$all.song_name}" placeholder="用户名字" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加曲类的名字</div>
+            </div>
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">曲类介绍:</label>
+                <div class="layui-input-inline">
+                    <textarea name="introduce" required lay-verify="required" placeholder="请输入"
+                        class="layui-textarea">{$all.introduce}</textarea>
+                </div>
+                <div class="layui-form-mid layui-word-aux">曲类的介绍</div>
+            </div>
+
+            {/empty}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit" lay-submit="">保存</button>
+                    <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- 增加时间段js -->
+<script>
+    var number = 0;
+    var maximum = document.querySelector('.quantum'); //找到最大的div
+    var add = document.querySelector('#add'); //找到第三个第一个按钮
+    add.onclick = function () {
+        var newly = document.createElement('div');
+        maximum.appendChild(newly);
+        number++;
+        newly.innerHTML =
+            `<div class="layui-form-item">
+                <label class="layui-form-label">开始时间:</label>
+                <div class="layui-input-inline">
+                    <input type="time" name="brgin[]" value="" placeholder="设置开始时间" required="required"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">设置活动开始时间</div>
+
+                <label class="layui-form-label">结束时间:</label>
+                <div class="layui-input-inline">
+                    <input type="time" name="finish[]" value="" placeholder="设置结束时间" required="required"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">设置活动结束时间</div>
+            </div> `;
+    }
+    var reduce = document.querySelector('#reduce'); //找到最后一个按钮
+    reduce.onclick = function () {
+        var last = maximum.lastElementChild;
+        maximum.removeChild(last); //删除节点
+    }
+
+
+    //提示信息
+    function explain() {
+        layer.alert('这是这个景点某个开始订票时间');
+    }
+    function over() {
+        layer.alert('这是这个景点某个结束订票时间');
+    }
+    function ticket() {
+        layer.alert('每次最大限购票数(最好不大于6)');
+    }
+    function day() {
+        layer.alert('可以预定最近几天(最好不大于3天)');
+    }
+</script>
+{/block}

@@ -1,0 +1,52 @@
+<!-- 预约/ 景点配置 -->
+{extend name="base" /}
+{block name="body"}
+<style>
+	.image img {
+		widows: 45px;
+		height: 45px;
+	}
+</style>
+<div class="layui-card">
+	<div class="layui-card-body">
+		<div class="layui-btn-group">
+			<a href="{:url('admin/Play/add')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加戏曲</a>
+		</div>
+		<table class="layui-table layui-form">
+
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>戏曲名字</th>
+					<th>文字介绍</th>
+					<th>图片介绍</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{foreach name="all" item="v" empty="$empty"}
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.play_name}</td>
+					<td>
+						{$v.particular|mb_substr=0,20}
+					</td>
+					<td>
+						<img width="50px" height="50px" src="{$v.picture}" alt="{$v.play_name}" srcset="">
+					</td>
+					<td>
+						<a href="{:url('admin/play/add', ['up' => $v.id])}"
+							class="layui-btn layui-btn-xs layui-btn-normal"><i class="fa fa-edit"></i> 编辑</a>
+						<a href="{:url('admin/play/del', ['id' => $v.id])}"
+							class="layui-btn layui-btn-xs layui-btn-danger ajax-delete"><i class="fa fa-trash-o"></i>
+							删除</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+
+		</table>
+	</div>
+</div>
+{/block}

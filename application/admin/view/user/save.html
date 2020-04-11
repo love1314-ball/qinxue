@@ -1,0 +1,75 @@
+<!-- 用户/增加/编辑页面 -->
+{extend name="base" /}
+{block name="body"}
+<div class="layui-card">
+    <div class="layui-card-header">规定时间段</div>
+    <div class="layui-card-body">
+        <form action="{:url('admin/User/edit')}" class="layui-form" method="post">
+            {empty name="id"}
+            <!-- 增加页面 -->
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" value="" placeholder="用户名字" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加用户的名字</div>
+            </div>
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">邮箱:</label>
+                <div class="layui-input-inline">
+                        <input type="email" name="mailbox" id="" required lay-verify="required" placeholder="qq邮箱"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">填写qq邮箱</div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" placeholder="账户密码" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">设置密码</div>
+            </div>
+
+            {else /}
+            <!-- 编辑页面 -->
+
+            <input type="hidden" name="id" value="{$id}" id="">
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" value="{$user.username}" placeholder="用户名字" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">所要增加用户的名字</div>
+            </div>
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">邮箱:</label>
+                <div class="layui-input-inline">
+                        <input type="email" name="mailbox" id="" value="{$user.mailbox}" required lay-verify="required" placeholder="qq邮箱"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">填写qq邮箱</div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" placeholder="账户密码" required="required" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">设置密码</div>
+            </div>
+
+            {/empty}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit" lay-submit="">保存</button>
+                    <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
