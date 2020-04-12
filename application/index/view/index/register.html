@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>登录注册</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <!--top begin-->
+        <div class="top">
+            <div class="logo"><img src="/images/logo.png" width="310" height="70" /></div>
+            <div class="options">
+                <div class="fav"><span><img src="/images/收藏.png" width="25" height="25" /></span><a href="#">加入收藏</a>
+                </div>
+                <div class="home"><span><img src="/images/订阅.png" width="23" height="23" /></span><a href="#">RSS订阅</a>
+                </div>
+            </div>
+        </div>
+        <!--top end-->
+        <!--nav begin-->
+        <div class="nav">
+            <div class="nav_con">
+                <ul>
+                    <li><a href="{:url('index/index/index')}">首页</a><span></span></li>
+                    <li><a href="{:url('index/index/skill')}">曲艺曲种</a><span></span></li>
+                    <li><a href="{:url('index/index/appreciate')}">曲艺赏析</a><span></span></li>
+                    <li><a href="{:url('index/index/history')}">曲艺历史</a><span></span></li>
+                    <li><a href="{:url('index/index/register')}">
+                            {empty name="username"}
+                            登录/注册
+                            {else /}
+                            {$Request.session.user_name}
+                            {/empty}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--nav end-->
+        <div class="content" id="login">
+            <div class="form sign-in">
+                <h2>欢迎回来</h2>
+                <label>
+                    <span>邮箱</span>
+                    <input type="email" id="log_mailbox" />
+                </label>
+                <label>
+                    <span>密码</span>
+                    <input type="password" id="log_password" />
+                </label>
+                <p class="forgot"><a href="#">忘记密码？</a></p>
+                <button type="button" onclick="log()" class="submit">登 录</button>
+
+            </div>
+            <div class="sub-cont">
+                <div class="img">
+                    <div class="img__text">
+                        <a href="JavaScript:void(0)" onclick="toRegister()"><span
+                                class="enregister">还未注册？立即注册</span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--注册-->
+        <div class="content" class="content" style="display: none;" id="register">
+            <div class="form sign-in">
+                <h2>账号注册</h2>
+                <label>
+                    <span>用户名</span>
+                    <input type="text" id="user" />
+                </label>
+                <label>
+                    <span>邮箱</span>
+                    <input type="email" id="mailbox" />
+                </label>
+                <label>
+                    <span>密码</span>
+                    <input type="password" id="password" />
+                </label>
+                <label>
+                    <span>确认密码</span>
+                    <input type="password" id="passwords" />
+                </label>
+                <button type="button" onclick="register()" class="submit">注册</button>
+            </div>
+            <div class="sub-cont">
+                <div class="img">
+                    <div class="img__text">
+                        <a href="JavaScript:void(0)" onclick="toLogin()"><span class="enregister">已有账号点击登陆</span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+    function toRegister() {
+        $("#login").hide();
+        $("#register").show();
+    }
+    function toLogin() {
+        $("#login").show();
+        $("#register").hide();
+    }
+    //注册函数
+    function register() {
+        var password = $("#password").val();
+        var passwords = $("#passwords").val();
+        var mailbox = $("#mailbox").val();
+        var user = $("#user").val();
+        var status = 1;
+        if (password == "") {
+            alert("密码不能为空"); exit;
+        }
+        if (mailbox == "") {
+            alert("邮箱不能为空"); exit;
+        }
+        if (user == "") {
+            alert("用户不能为空"); exit;
+        }
+        if (password == passwords) {
+
+            $.ajax({
+                type: 'POST',
+                url: "{:url('index/index/login')}",
+                data: {
+                    password: password,
+                    mailbox: mailbox,
+                    status: status,
+                    user: user
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+
+                    if (data == 2) {
+                        alert("注册成功/请刷新页面");
+                        location.reload();
+                    }
+                    if (data == 3) {
+                        alert("网络错误");
+                    }
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        } else {
+            alert('两次密码输入不一致');
+        }
+    }
+
+    function log() {
+        //登录函数
+        var password = $("#log_password").val();
+        var mailbox = $("#log_mailbox").val();
+        var status = 0;
+        if (password == "") {
+            alert("密码不能为空"); exit;
+        }
+        if (mailbox == "") {
+            alert("邮箱不能为空"); exit;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('index/index/login')}",
+            data: {
+                password: password,
+                mailbox: mailbox,
+                status: status
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data == 0) {
+                    alert("登录成功/请刷新页面");
+                    location.reload();
+                }
+                if (data == 1) {
+                    alert("账号或密码错误");
+                }
+            },
+            error: function () {
+                console.log("error");
+            }
+        });
+
+
+    }
+</script>
+
+</html>

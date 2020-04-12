@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>曲艺中原</title>
+   <link rel="stylesheet" href="/css/index.css" type="text/css">
+   <link rel="stylesheet" href="/css/skill.css" type="text/css">
+</head>
+
+<body>
+   <div class="container">
+      <!--top begin-->
+      <div class="top">
+         <div class="logo"><img src="/images/logo.png" width="310" height="70" /></div>
+         <div class="options">
+            <div class="fav"><span><img src="/images/收藏.png" width="25" height="25" /></span><a href="#">加入收藏</a></div>
+            <div class="home"><span><img src="/images/订阅.png" width="23" height="23" /></span><a href="#">RSS订阅</a>
+            </div>
+         </div>
+      </div>
+      <!--top end-->
+      <!--nav begin-->
+      <div class="nav">
+         <div class="nav_con">
+            <ul>
+               <li><a href="{:url('index/index/index')}">首页</a><span></span></li>
+               <li><a href="{:url('index/index/skill')}">曲艺曲种</a><span></span></li>
+               <li><a href="{:url('index/index/appreciate')}">曲艺赏析</a><span></span></li>
+               <li><a href="{:url('index/index/history')}">曲艺历史</a><span></span></li>
+               <li><a href="{:url('index/index/register')}">
+                  {empty name="username"}
+                  登录/注册
+                  {else /}
+                  {$Request.session.user_name}
+                  {/empty}
+              </a>
+          </li>
+            </ul>
+         </div>
+      </div>
+      <div class="content">
+         <div class="left">
+            <div class="quzhong">
+               <div class="quzhong_title"><span><img src="/images/quyiqyzhong.png" width="20" height="20" /></span>曲种选择
+               </div>
+               <div class="quzhong_con">
+                  <ul>
+                     {foreach name="all" item="v" empty="$empty"}
+                     <li><a href="{:url('index/index/skill',['song_id' => $v.id])}">{$v.song_name}</a></li>
+                     {/foreach}
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+
+         {if $empty eq 0}
+         <!-- 当$empty为零的时候说明数据为空 -->
+         <div class="right">
+            <div class="jieshao">
+               {foreach name="play" item="v" empty="$empty"} {/foreach}
+               <dl>
+                  <dt>
+                     <a href="{:url('index/index/particular',['play_id'=> $v.id])}">
+                        <img src="{$v.picture}" width="400" height="250" />
+                     </a>
+                  </dt>
+                  <dd>
+                     <h1>{$v.play_name}</h1>
+                     <p>{$v.particular}</p>
+                     <!-- <p>中原地区作为中华文化的发源地，在几千年的发展中以其特殊的地理环境、历史地位和人文 精神孕育了博大精深的曲艺文化。中原曲艺作为中原民族优秀的非物质文化遗产,具有曲种曲目众多、内容丰富、形式多变、影响广泛等传播特点，是中原民众喜闻乐见的娱乐方式，中原曲艺以其丰富的历史内涵和文化积淀，成为中国传统文化的重要组成部分，为对内和对外的跨文化传播提供了丰富的资源。</p> -->
+                  </dd>
+               </dl>
+            </div>
+         </div>
+         <div class="lei">
+            <div class="lei_title">经典曲目</div>
+            <div class="lei_con">
+               <ul>
+                  {foreach name="play" item="vo" empty="$empty"}
+                  <li>
+                     <div><a href="{:url('index/index/particular',['play_id'=> $vo.id])}"><img src="{$vo.picture}"
+                              width="150" height="100" /></a></div>
+                     <div class="name">《{$vo.play_name}》</div>
+                  </li>
+                  {/foreach}
+               </ul>
+            </div>
+         </div>
+         {else/}
+         暂无上传数据~
+         {/if}
+
+      </div>
+      <div class="footer">
+         <div class="footer_con">
+            <p>网站简介 ▏关于我们 ▏版权所有 ▏联系方式 ▏返回顶部 ▏Chinese Opera </p>
+            <p>Copyright 曲艺中原网 Chinaopera. Some Rights Reserved</p>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>

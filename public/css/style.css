@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*top*/
+body {
+       margin: 25px auto 0px;
+       width: 1050px;
+       background: no-repeat 0 0;
+       background-size: 100% 100%;
+}
+
+.top {
+       margin: 5px auto 0px auto;
+       padding: 0px;
+       width: 1050px;
+       height: 60px;
+       text-align: left;
+}
+
+.logo {
+       float: left;
+       margin-top: 1px;
+}
+
+.options {
+       float: right;
+       margin: 40px 0px 0px 0px;
+}
+
+.fav,
+.home {
+       float: left;
+       margin: 0px 5px;
+       display: inline;
+}
+
+.fav span {
+       float: left;
+       width: 15px;
+       height: 15px;
+       margin-right: 15px;
+       display: inline;
+}
+
+.home span {
+       float: left;
+       width: 15px;
+       height: 15px;
+       margin-right: 15px;
+       display: inline;
+}
+
+.home a,
+.fav a {
+       color: #9b9b9b;
+       float: left;
+}
+
+/*top*/
+/*nav*/
+.nav {
+       margin: 15px 0px 0px 0px;
+       padding: 0px;
+       width: 100%;
+       height: 40px;
+       line-height: 40px;
+       background: url(../images/%E5%AF%BC%E8%88%AA%E6%A0%8F.jpg);
+       vertical-align: middle;
+       text-align: left;
+}
+
+.nav_con {
+       margin: 0px 0px 0px 170px;
+       padding: 0px;
+       width: 1050px;
+}
+
+.nav ul {
+       margin: 0px 0px 0px 15px;
+       padding: 0px;
+       width: 1000px;
+}
+
+.nav ul li {
+       margin: 0px 35px 0 0;
+       padding: 0px;
+       float: left;
+       list-style: none;
+}
+
+.nav ul li a {
+       text-decoration: none;
+       color: #FFF;
+       font-weight: bold;
+       float: left;
+       cursor: pointer;
+}
+
+.nav ul li span {
+       height: 43px;
+       width: 12px;
+       float: left;
+}
+
+.nav ul li:hover a {
+       background: #F90;
+       height: 35px;
+       margin: 1px 0 0 0;
+       padding-top: 3px;
+       float: left;
+       color: #FFF;
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>曲艺赏析</title>
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/appreciate.css" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+    <!--top begin-->
+    <div class="top">
+      <div class="logo"><img src="/images/logo.png" width="310" height="70" /></div>
+      <div class="options">
+        <div class="fav"><span><img src="/images/收藏.png" width="25" height="25" /></span><a href="#">加入收藏</a></div>
+        <div class="home"><span><img src="/images/订阅.png" width="23" height="23" /></span><a href="#">RSS订阅</a></div>
+      </div>
+    </div>
+    <!--top end-->
+    <!--nav begin-->
+    <div class="nav">
+      <div class="nav_con">
+        <ul>
+          <li><a href="{:url('index/index/index')}">首页</a><span></span></li>
+          <li><a href="{:url('index/index/skill')}">曲艺曲种</a><span></span></li>
+          <li><a href="{:url('index/index/appreciate')}">曲艺赏析</a><span></span></li>
+          <li><a href="{:url('index/index/history')}">曲艺历史</a><span></span></li>
+          <li><a href="{:url('index/index/register')}">
+            {empty name="username"}
+            登录/注册
+            {else /}
+            {$Request.session.user_name}
+            {/empty}
+        </a>
+    </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="left">
+        <div class="yinpin">
+          <div class="yinpin_title">曲艺音乐</div>
+          <div class="yinpin_con">
+            <ul>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">伴奏-我在此江宁府把衣更</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">伴奏-锣鼓喧天齐把道喊</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">伴奏-嘉靖皇爷坐北京</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《对花枪》老身家住南阳地</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《打金枝》小小的郭暧太无理</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">大红袍-离北京放罢了炮三声</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《昔日里有一个二大贤》</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《血溅乌纱》风萧萧连春秋时</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《辕门斩子》一进帐-伴奏</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">朝阳沟 选段</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">包青天见皇姑</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《花木兰》选段</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">清唱银环上山</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">豫剧对绣鞋（伴奏）</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《秦香莲》三江水</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《张德和休妻》</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《双喜临门》</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《老灶爷诉苦》</a></li>
+              <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a href="#">《薛丁山征西》</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mingduan">
+        <div class="mingduan_title">名家片段<span><img src="/images/片段-title.jpg" height="150" width="150" /></span></div>
+        <div class="mingduan_con">
+          <dl>
+            <dd>
+              <h1><a href="《穆桂英挂帅》.html">豫剧《穆桂英挂帅》介绍</a></h1>
+              <p>
+                杨家将屡次率兵击溃辽军，保住了大宋江山，天下太平；佘太君离朝带领全家转回河东，然而忠心耿耿的佘氏太君却心系国家安危，遂派文广、金花进京打探。此时安王造反，宋王校场选帅。少年气盛的文广、金花在校场刀劈王伦夺得帅印。宋王得知杨门之子遂封穆桂英为帅出征。为了国家安危，老年的穆桂英披上旧日的铠甲，满怀豪情又擂响了出征的战鼓。
+              </p>
+              <hr width="600" align="left">
+            </dd>
+            <dd>
+              <h1><a href="#">坠子《三打四劝》介绍</a></h1>
+              <p>
+                苏玉娥受婆婆和小姑虐待，回娘家暂住，又被哥哥送回。婆婆嫌她回来太晚，见面就打。玉娥下厨做饭，小姑抛米于火、撒灰于锅，嫁祸于玉娥。玉娥又遭婆婆和小姑毒打。丈夫张长恩放学回家，小姑谎称玉娥往锅里下毒，逼使哥哥持刀杀妻。邻居于婆将刀夺下，先劝长恩，后劝婆婆，再劝小姑，最后又开导玉娥。她的说教朴实亲切，对症下药，打动人心，终使全家和好。
+              </p>
+              <hr width="730" align="left">
+            </dd>
+            <dd>
+              <h1><a href="#">曲剧《卷席筒》介绍</a></h1>
+              <p>
+                主人公张苍娃是一个善良可爱的少年，他从小失去父亲，跟着母亲嫁到曹家。可是心术不正的母亲害死了曹老爷，并嫁祸于曹保山之妻张氏。正直的苍娃为了救出嫂嫂张氏，一人承担了杀人的罪名，被判斩刑。幸亏新到任的巡抚是苍娃进京赶考取得功名的哥哥曹保山，苍娃获救。他接来了嫂嫂张氏，一家团圆。
+              </p>
+              <hr width="730" align="left">
+            </dd>
+            <dd>
+              <h1><a href="#">越调《三哭殿》介绍</a></h1>
+              <p>
+                唐贞观年间驸马秦怀玉之子秦英，在彩仙（金水）桥钓鱼，适逢太师詹洪纪经过，道锣惊散鱼儿，秦英失手打死太师。西宫詹翠萍哭奏于太宗，银屏公主绑子上殿，长孙后闻讯亦上金殿。金殿上为父报仇要求斩秦英，银屏公主、长孙后要求释放秦英，三人为此哭闹于金殿之上，太宗杀、放两难，百般劝解，以国事为重，命公主头顶皇封御酒，跪请詹妃宽恕。最后詹妃以国事为重，接酒同意太宗欲放秦英。
+              </p>
+              <hr width="730" align="left">
+            </dd>
+          </dl>
+        </div>
+        <div class="xia"><a href="#"><img src="/images/more.png" width="25" height="25"></a></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer_con">
+        <p>网站简介 ▏关于我们 ▏版权所有 ▏联系方式 ▏返回顶部 ▏Chinese Opera </p>
+        <p>Copyright 曲艺中原网 Chinaopera. Some Rights Reserved</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.content{ margin:15px auto 0px auto; padding-bottom:15px; width:1050px;}
+/*left*/
+.left{ margin:0px; padding:0px; width:233px; float:left; background:#FFC;}
+.quzhong_title{ width:231px; height:30px; background:#FF9; repeat-x; line-height:30px;
+vertical-align:middle; text-align:left; color:#393939; font-size:15px; font-weight:bold;}
+.quzhong_title span{float:left; width:20px; height:20px; display:inline; margin:4px 7px 0 11px}
+.quzhong_con{ margin:0px; padding:16px 0px 16x 15px; text-align:left;}
+.quzhong_con ul li{margin:10px 0px; padding:0px;}
+.quzhong_con ul li:hover a{color:#C0F;}
+
+
+/*right*/
+.right{ margin:0px; padding:0px; width:817;}
+.jieshao dl {width:800; overflow:hidden;}
+.jieshao dt {float:right; margin-left:30px;}
+.jieshao dd h1{ font-size:30px; margin-top:10px;}
+.jieshao dd p{ line-height:22px; text-indent:2em; text-align:left;}
+
+
+.lei{ margin-top:-8px; float:right; width:800px; height:200px; border:1px dashed #999;}
+.lei_title{ color:#999; font-size:23px; margin-left:20px; margin-top:5px;}
+.lei_con{ margin:0px; padding:18px 0px 15px 17px; overflow:hidden;}
+.lei_con ul{margin:0px; padding:0px; list-style:none;}
+.lei_con ul li{margin:3px 30px 0px 15px; padding:0px; float:left; text-align:center; display:inline;}
+.lei_con ul li .name{margin:10px 0px 0px 0px;}
+
+.footer{width:1050px; background:#FF9; clear:both; padding-bottom:10px; margin:0px;}
+.footer_con p{line-height:10px; font-size:13px; color#666; font-family:"微软雅黑 Light"; text-align:center; padding-top:10px;}

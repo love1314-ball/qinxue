@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<!-- 详细页面 -->
+
+<head>
+    <meta charset="utf-8">
+    <title>《{$all.play_name}》</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/particular.css" type="text/css">
+    <link rel="stylesheet" href="/css/discuss.css" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!--top begin-->
+        <div class="top">
+            <div class="logo"><img src="/images/logo.png" width="310" height="70" /></div>
+            <div class="options">
+                <div class="fav"><span><img src="/images/收藏.png" width="25" height="25" /></span><a href="#">加入收藏</a>
+                </div>
+                <div class="home"><span><img src="/images/订阅.png" width="23" height="23" /></span><a href="#">RSS订阅</a>
+                </div>
+            </div>
+        </div>
+        <!--top end-->
+        <!--nav begin-->
+        <div class="nav">
+            <div class="nav_con">
+                <ul>
+                    <li><a href="{:url('index/index/index')}">首页</a><span></span></li>
+                    <li><a href="{:url('index/index/skill')}">曲艺曲种</a><span></span></li>
+                    <li><a href="{:url('index/index/appreciate')}">曲艺赏析</a><span></span></li>
+                    <li><a href="{:url('index/index/history')}">曲艺历史</a><span></span></li>
+                    <li><a href="{:url('index/index/register')}">
+                            {empty name="username"}
+                            登录/注册
+                            {else /}
+                            {$Request.session.user_name}
+                            {/empty}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <div class="yinpin">
+                    <div class="yinpin_title">戏曲欣赏</div>
+                    <div class="yinpin_con">
+                        <ul>
+                            {if $empty eq 0}
+                            {foreach name="play" item="vo" empty="$empty"}
+                            <li><span><img src="/images/喇叭图标.png" width="20" height="20" /></span><a
+                                    href="{:url('index/index/particular',['play_id'=> $vo.id])}">《{$vo.play_name}》</a>
+                            </li>
+                            {/foreach}
+                            {else/}
+                            暂无上传数据~
+                            {/if}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mingduan">
+                <div class="mingduan_con">
+                    <div class="shipin">
+                        <video src="{$vo.video}" controls height="480" width="640" autoplay>
+                            <p>你的浏览器不支持video标签</p>
+                        </video>
+                    </div>
+
+
+                    <div class="commentAll">
+                        <!--评论区域 begin-->
+                        <div class="reviewArea clearfix">
+                            <textarea class="content comment-input" id="content" placeholder="发表你的评论"></textarea>
+                            <a onclick="defaults()" class="plBtn">评论</a>
+                        </div>
+                        <!--评论区域 end-->
+                        <!--回复区域 begin-->
+                        <div class="comment-show">
+                            <div class="comment-show-con clearfix big">
+                                <div class="comment-show-con-img pull-left">
+                                    <img src="/images/header-img-comment_03.png" alt="">
+                                </div>
+                                <div class="comment-show-con-list pull-left clearfix">
+                                    discuss
+                                    <div class="pl-text clearfix">
+                                        <a href="#" class="comment-size-name">张三 : </a>
+                                        <span class="my-pl-con">&nbsp;来啊 造作啊!</span>
+                                    </div>
+                                    <div class="date-dz">
+                                        <div class="date-dz-right pull-right comment-pl-block">
+                                            <!-- <a href="javascript:;"
+                                                class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--回复区域 end-->
+                    </div>
+
+                </div>
+</body>
+
+</html>
+
+<script>
+    //js判断我们的内容
+    function defaults() {
+        var content = $("#content").val();
+        var play_id = "{$play_id}";
+        $.ajax({
+            type: 'POST',
+            url: "{:url('index/index/discuss')}",
+            data: {
+                content: content,
+                play_id: play_id
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data == 0) {
+                    alert("你没有登录请先去登录");
+                }
+                if (data == 1) {
+                    alert("评论成功/刷新页面即可看到");
+                }
+                if (data == 2) {
+                    alert("网络错误");
+                }
+            },
+            error: function () {
+                console.log("error");
+            }
+        });
+    }
+
+
+
+</script>

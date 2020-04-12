@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+     <meta charset="utf-8">
+     <title>曲艺历史</title>
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/history.css">
+</head>
+
+<body>
+     <div class="container">
+          <!--top begin-->
+          <div class="top">
+               <div class="logo"><img src="/images/logo.png" width="310" height="70" /></div>
+               <div class="options">
+                    <div class="fav"><span><img src="/images/收藏.png" width="25" height="25" /></span><a
+                              href="#">加入收藏</a></div>
+                    <div class="home"><span><img src="/images/订阅.png" width="23" height="23" /></span><a
+                              href="#">RSS订阅</a></div>
+               </div>
+          </div>
+          <!--top end-->
+          <!--nav begin-->
+          <div class="nav">
+               <div class="nav_con">
+                    <ul>
+                         <li><a href="{:url('index/index/index')}">首页</a><span></span></li>
+                         <li><a href="{:url('index/index/skill')}">曲艺曲种</a><span></span></li>
+                         <li><a href="{:url('index/index/appreciate')}">曲艺赏析</a><span></span></li>
+                         <li><a href="{:url('index/index/history')}">曲艺历史</a><span></span></li>
+                         <li><a href="{:url('index/index/register')}">
+                              {empty name="username"}
+                              登录/注册
+                              {else /}
+                              {$Request.session.user_name}
+                              {/empty}
+                          </a>
+                      </li>
+                    </ul>
+               </div>
+          </div>
+          <!--nav end-->
+          <div class="content">
+               <div class="gushi">
+                    <div class="gushi_title"><a href="#">历史小故事</a></div>
+                    <div class="gushi_con">
+                         <dl>
+                              <dd>
+                                   <h1><a href="#">《西厢记》</a></h1>
+                                   <p>洛阳书生张君瑞进京赶考，路经普救寺，遇已故崔相国之女莺莺，两人一见倾心，遂借读西厢...</p>
+                              </dd>
+                              <dd>
+                                   <h1><a href="#">《花木兰》</a></h1>
+                                   <p>隋朝时，异族经常侵犯，战事频繁，朝廷经常在民间募兵。木兰父亲年老多病，弟弟年幼，无法替父从军...</p>
+                              </dd>
+                              <dd>
+                                   <h1><a href="#">《花打朝》</a></h1>
+                                   <p>唐朝，突厥石建王进犯，罗成之子罗通出征凯旋，唐王封为并肩王并赐其御街夸官。路经国舅府时...</p>
+                              </dd>
+                              <dd>
+                                   <h1><a href="#">《对花枪》</a></h1>
+                                   <p>隋朝年末，罗艺少年时，进京复考，途中病在张家集，被姜桂芝父亲救回家中，并让女儿姜桂芝向罗艺传授姜家花枪...</p>
+                              </dd>
+                              <dd>
+                                   <h1><a href="#">《穆桂英挂帅》</a></h1>
+                                   <p>北宋时，西夏犯境。辞朝隐居的佘太君听闻，遣曾孙杨文广，曾孙女杨金花去汴京探听。杨文广在校场比武...</p>
+                              </dd>
+                         </dl>
+                    </div>
+               </div>
+               <div class="right">
+                    <div class="lishi">
+                         <dl>
+                              <dd>
+                                   <h2>曲艺发展史</h2>
+                                   <p>早在古代，中国民间的说故事、讲笑话，宫廷中俳优的弹唱歌舞、滑百稽表演，都含有曲艺的艺术因素。
+                                        到了唐代，讲说市人小说和向俗众宣讲佛经故事的俗讲的出现，大曲和民间曲调的流行，使说话伎艺、歌唱伎艺兴盛度起来，自此，曲艺作为一种独立的艺术形式开始形成。
+                                        到了宋代，由于商品经济的发展，城市繁荣，市民阶层壮大，说唱表演有了专门的场所，也有了职业艺人知，说话伎艺，鼓子词、诸宫调、唱赚等演唱形式极其昌盛，孟元老的《东京梦华录》、耐得翁的《都城纪胜》都对此作了详细记载。
+                                        明清两代及至民国初年，伴随资本主义经济萌芽，城市数道量猛增，大大促进了说唱艺术的发展，即一方面是城市周边地带赋有浓郁地方色彩的民间说唱纷纷流向版城市，它们在演出实践中日臻成熟，如道情、莲花落、凤阳花鼓、霸王鞭等；一方面一些老曲种在流布过程中，结合各地地域和方言的特点发生着变化，如散韵相间的元、明词话逐渐演变为南方的弹词和北方的鼓词。这权一时期新的曲艺品种，新的曲目不断涌现，不少曲种已是名家辈出流派纷呈。我们今天所见到的曲艺品种，大多为清代至民初曲种的流传。
+                                   </p>
+                                   <p>中原地区作为中华文化的发源地，在几千年的发展中以其特殊的地理环境、历史地位和人文精神孕育了博大精深的曲艺文化。中原曲艺的众多艺术元素起源于先秦时期，在汉代迅速成长壮大
+                                        ，而其真正形成是在唐代，并在宋代逐渐成熟丰富起来。宋代以后，中原地区在全国的中心地位
+                                        不复存在，但其深厚的文化积淀为元、明、清三代曲艺艺术的持续发展奠定了基础。在传统曲艺基础上发展起来的现代中原曲艺艺术形成于清代，在民国时期再度发展繁荣，新中国成立至今经历了曲折发展和变革。
+                                   </p>
+                              </dd>
+                         </dl>
+                    </div>
+               </div>
+
+               <div class="footer">
+                    <div class="footer_con">
+                         <p>网站简介 ▏关于我们 ▏版权所有 ▏联系方式 ▏返回顶部 ▏Chinese Opera </p>
+                         <p>Copyright 曲艺中原网 Chinaopera. Some Rights Reserved</p>
+                    </div>
+               </div>
+
+
+
+          </div>
+</body>
+
+</html>
